@@ -1,0 +1,126 @@
+/* ===== ADMIN LAYOUT ===== */
+
+.admin-layout{
+display:flex;
+gap:30px;
+padding:40px 80px;
+}
+
+/* ===== SIDEBAR ===== */
+
+.admin-sidebar{
+width:220px;
+background:#f9fafb;
+border-radius:12px;
+padding:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+height:fit-content;
+}
+
+.sidebar-title{
+font-size:16px;
+font-weight:600;
+margin-bottom:15px;
+}
+
+.sidebar-menu{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.sidebar-menu li{
+padding:10px 14px;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:8px;
+font-size:14px;
+color:#374151;
+}
+
+.sidebar-menu li:hover{
+background:#e5e7eb;
+}
+
+.sidebar-menu .active{
+background:#3b82f6;
+color:white;
+}
+
+/* ===== MAIN CONTAINER ===== */
+
+.admin-container{
+flex:1;
+}
+
+.admin-title{
+font-size:24px;
+margin-bottom:20px;
+}
+
+/* ===== CARDS ===== */
+
+.admin-cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.admin-card{
+display:flex;
+align-items:center;
+gap:15px;
+padding:22px;
+border-radius:12px;
+background:white;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.admin-icon{
+font-size:22px;
+}
+
+/* ===== COMMUNITY BOX ===== */
+
+.impact-box{
+margin-top:25px;
+padding:20px;
+background:white;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
+
+.admin-layout{
+flex-direction:column;
+}
+
+.admin-cards{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:500px){
+
+.admin-cards{
+grid-template-columns:1fr;
+}
+
+}
+
+.sidebar-menu a{
+text-decoration:none;
+color:inherit;
+display:block;
+width:100%;
+}
+
+.sidebar-menu li:hover{
+background:#e5e7eb;
+transform:translateX(4px);
+transition:.2s;
+}

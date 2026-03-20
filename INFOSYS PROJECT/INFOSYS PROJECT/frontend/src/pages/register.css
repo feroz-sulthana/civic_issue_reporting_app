@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --blue:     #1a56db;
+  --blue-d:   #1241b0;
+  --blue-l:   #e8f0fe;
+  --green:    #16a34a;
+  --green-l:  #dcfce7;
+  --teal:     #0d9488;
+  --slate:    #0f172a;
+  --gray:     #64748b;
+  --muted:    #94a3b8;
+  --line:     #e2e8f0;
+  --white:    #ffffff;
+  --bg:       #f8fafc;
+  --shadow:   0 4px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg:0 16px 56px rgba(15, 23, 42, 0.14);
+  --radius:   14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--slate);
+}
+
+/* ── WRAPPER ── */
+.register-wrapper {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle background blobs */
+.register-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -140px;
+  right: -140px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26, 86, 219, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.register-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── CARD ── */
+.register-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 36px 36px 32px;
+  background: var(--white);
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── BRAND EYEBROW ── */
+.register-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-l);
+  color: var(--blue);
+  padding: 4px 14px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.register-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: rp-pulse 2s infinite;
+}
+
+@keyframes rp-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.4); }
+}
+
+/* ── HEADING ── */
+.register-card h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  color: var(--slate);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+/* ── INPUTS ── */
+.register-card input,
+.register-card select {
+  width: 100%;
+  padding: 11px 14px;
+  margin-bottom: 12px;
+  border-radius: 9px;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--slate);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.register-card input:focus,
+.register-card select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.09);
+}
+
+.register-card input::placeholder {
+  color: var(--muted);
+}
+
+/* ── TWO-COL ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.two-col input,
+.two-col select {
+  margin-bottom: 0;
+}
+
+/* ── USERNAME STATUS ── */
+.username-field {
+  position: relative;
+}
+
+.username-field input {
+  padding-right: 36px;
+}
+
+.status {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.status.available { color: var(--green); }
+.status.taken     { color: #dc2626; }
+
+/* ── ROLE BOX ── */
+.role-box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  padding: 0 12px;
+  background: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.role-box:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.09);
+}
+
+.role-box label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.role-box input[type="radio"] {
+  margin: 0;
+  width: auto;
+  padding: 0;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+/* ── PASSWORD ── */
+.password-field {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.password-field input {
+  padding-right: 44px;
+  margin-bottom: 0;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.eye-btn:hover {
+  color: var(--blue);
+}
+
+.eye-btn:focus { outline: none; }
+
+/* ── STRENGTH ── */
+.strength-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 12px;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.strength-bar {
+  height: 4px;
+  flex: 1;
+  border-radius: 4px;
+  background: var(--line);
+  transition: background 0.3s;
+}
+
+.strength-label {
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 48px;
+  text-align: right;
+}
+
+/* bar fill states */
+.strength-row.weak   .strength-bar:nth-child(1)                { background: #ef4444; }
+.strength-row.medium .strength-bar:nth-child(1),
+.strength-row.medium .strength-bar:nth-child(2)                { background: #f59e0b; }
+.strength-row.strong .strength-bar                             { background: var(--green); }
+
+.strength-row.weak   .strength-label { color: #ef4444; }
+.strength-row.medium .strength-label { color: #f59e0b; }
+.strength-row.strong .strength-label { color: var(--green); }
+
+/* ── REGISTER BUTTON ── */
+.register-btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  background: var(--blue);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(26, 86, 219, 0.28);
+  margin-top: 4px;
+}
+
+.register-btn:hover:not(:disabled) {
+  background: var(--blue-d);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(26, 86, 219, 0.36);
+}
+
+.register-btn:disabled {
+  background: var(--muted);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.divider span {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── GOOGLE BUTTON ── */
+.google-btn {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--slate);
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.google-btn:hover {
+  border-color: #c7d7f4;
+  background: var(--blue-l);
+  transform: translateY(-1px);
+}
+
+.google-btn img {
+  width: 18px;
+}
+
+/* ── FOOTER LINK ── */
+.login-text {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.login-text a {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.login-text a:hover {
+  color: var(--blue-d);
+  text-decoration: underline;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 520px) {
+  .register-card {
+    padding: 28px 20px 24px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
